@@ -1,5 +1,7 @@
 import $ from 'jquery';
 
+import TaskListView from 'app/views/task_list_view';
+
 var taskData = [
   {
     title: 'Mow the lawn',
@@ -14,5 +16,9 @@ var taskData = [
 ];
 
 $(document).ready(function() {
-  $('#test-area').append($('<p>Hello World!</p>'));
+  var application = new TaskListView({
+    el: $('#application'),
+    taskData: taskData
+  });
+  application.render();
 });
