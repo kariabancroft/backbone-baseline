@@ -2,9 +2,86 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js"></script>
+
+    <link rel="stylesheet" href="css/app.css">
   </head>
+  <!-- <header> -->
+  <div class="fixed">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area row">
+        <li class="name large-3 small-12columns">
+          <h1><a id="rental-store" href="#">Rental Store</a></h1>
+        </li>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li class="has-form">
+              <div class="row collapse">
+                <div class="large-4 small-9 columns">
+                  <input id="search-input" type="text" placeholder="Search Movies">
+                </div>
+                <div class="large-8 small-3 columns">
+                  <a id="search-btn" href="" class="button expand">Search</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <li><a href="" id="rental-lib">Rental Library</a></li>
+        <!-- <li><a href="#">Search Movies</a></li> -->
+      </ul>
+    </nav>
+  </div>
+  <!-- </header> -->
   <body>
-    <div id="application"></div>
+
+    <div id="main-row" class="row">
+    </div>
+    <!-- <div id="application"></div> -->
+
+    <script id="movie-list-template" type="text/template">
+      <!-- <div class="large-3 columns"> -->
+        <img alt="<%= title %>" src="<%= image_url %>"/>
+        <p><strong><%= title %></strong></p>
+        <% if (external_id != undefined) { %>
+          <button class="button lib-button" id=<%= external_id %>>Add to Library</button>
+        <% } else { %>
+          <button class="button rent-button" id=<%= id %>>Rent</button>
+        <% } %>
+      <!-- </div> -->
+    </script>
+
+    <script id="movie-detail-list-template" type="text/template">
+      <div class="movie-detail">
+        <p class="top-text"><%= overview.substring(0,90) + "..." %></p>
+        <p class="bottom-text"><strong><%= release_date %></strong></p>
+      </div>
+    </script>
+
+    <script type="text/template" id="movie-detail-template">
+      <div class="large-6 small-12 columns">
+        <img alt="<%= title %>" src="<%= image_url %>"/>
+      </div>
+      <div class="large-6 small-12 columns">
+          <div class="movie-actions">
+            <select class="customer-select">
+              
+            </select>
+            <button class="button rent-button" id=<%= id %>>Rent</button>
+          </div>
+          <h3><%= title %></h3>
+          <p><strong><%= release_date %></strong></p>
+          <p><%= overview %></p>
+      </div>
+
+    </script>
+
     <script src="/app.bundle.js" charset="utf-8"></script>
   </body>
 </html>

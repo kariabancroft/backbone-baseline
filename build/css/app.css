@@ -1,0 +1,27 @@
+li {
+  list-style: none;
+}
+
+img.dimmed {
+  /*opacity: 50%;*/
+  filter: opacity(30%);
+  /*grayscale(100%), blur(5px);*/
+  /*blur:*/
+}
+
+div.movie {
+  display: inline-block;
+  position: relative;
+}
+p.top-text {
+  position: absolute;
+  top: 0px;
+  padding-right: 40%;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+p.bottom-text {
+  position: absolute;
+  top: 230px;
+  padding-left: 10px;
+}
